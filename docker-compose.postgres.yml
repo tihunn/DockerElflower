@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  db:
+    container_name: "post"
+    image: "postgres"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: elflower
+      POSTGRES_PASSWORD: super2Pass
+      POSTGRES_DB: elflower
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: noemail@noemail.ru
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"

@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  db:
+    container_name: "post"
+    image: "postgres"
+    volumes:
+      - mydb:/var/lib/postgresql/data
+    env_file:
+      - config/devBack.evn
+    restart: always
+    ports:
+      - "5432:5432"
+  backend:
+    build: ./server
+    ports:
+      - "3007:3007"
+    volumes:
+      - C:/elflow/server:/app
+      - /app/node_modules
+    env_file:
+      - config/devBack.evn
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3000:3000"
+    volumes:
+      - C:/elflow/server:/app/src
+    env_file:
+      - config/devFront.evn
+volumes:
+  mydb:
+    driver: local
