@@ -1,4 +1,6 @@
 .idea
+/elflowReact
+/elflowServer
 
 /client/node_modules
 /server/node_modules

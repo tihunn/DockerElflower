@@ -1,0 +1,12 @@
+elflowServer/node_modules
+elflowReact/node_modules
+elflowReact/build
+elflowServer/static
+
+elflowReact/Dockerfile
+Dockerfile
+docker-compose.yml
+docker-compose.postgersyml
+
+.gitignore
+.git

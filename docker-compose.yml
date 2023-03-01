@@ -6,31 +6,26 @@ services:
     volumes:
       - mydb:/var/lib/postgresql/data
     env_file:
-      - config/devBack.evn
+      - config/Back.evn
     restart: always
     ports:
       - "5432:5432"
   backend:
-    build: ./server
+    build: .
     ports:
       - "3007:3007"
-    volumes:
-      - C:/elflow/server:/app
-      - /app/node_modules
     env_file:
-      - config/devBack.evn
+      - config/Back.evn
+    restart: always
     depends_on:
       - db
   frontend:
-    build:
-      context: ./client
-      dockerfile: Dockerfile.prod
+    build: ./elflowReact
     ports:
-      - "3000:3000"
-    volumes:
-      - C:/elflow/server:/app/src
+      - "80:3000"
     env_file:
-      - config/devFront.evn
+      - config/Front.evn
+    restart: always
 volumes:
   mydb:
     driver: local
