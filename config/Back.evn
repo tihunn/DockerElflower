@@ -1,13 +1,11 @@
-CHOKIDAR_USEPOLLING=true
-NODE_EVN=production
-SERVER_PORT=3007
-SERVER_HOST=localhost
+CHOKIDAR_USEPOLLING: true
+NODE_EVN: production
+SERVER_PORT: 3007
+SERVER_HOST: localhost
 POSTGRES_USER: elflower
 POSTGRES_PASSWORD: PassForGit
 POSTGRES_DB: elflower
-dbHost=localhost
-dbPort=5432
-secretKey=secretKeyForGit
+dbHost: localhost
+dbPort: 5432
+secretKey: secretKeyForGit
 DATABASE_URL: postgres://elflower:PassForGit@db:5432/elflower
-
-
