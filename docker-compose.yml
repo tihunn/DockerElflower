@@ -6,7 +6,7 @@ services:
     volumes:
       - mydb:/var/lib/postgresql/data
     env_file:
-      - config/Back.evn
+      - config/Back.env
     restart: always
     ports:
       - "5432:5432"
@@ -15,7 +15,7 @@ services:
     ports:
       - "3007:3007"
     env_file:
-      - config/Back.evn
+      - config/Back.env
 
     depends_on:
       - db
@@ -24,7 +24,7 @@ services:
     ports:
       - "80:80"
     env_file:
-      - config/Front.evn
+      - config/Front.env
 
 volumes:
   mydb:
