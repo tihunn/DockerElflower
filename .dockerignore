@@ -4,9 +4,9 @@ elflowReact/build
 elflowServer/static
 
 
-Dockerfile
+elflowServer/Dockerfile
 docker-compose.yml
-docker-compose.postgersyml
+docker-compose.postgers.yml
 
 .gitignore
 .git

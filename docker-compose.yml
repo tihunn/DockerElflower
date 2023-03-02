@@ -11,21 +11,21 @@ services:
     ports:
       - "5432:5432"
   backend:
-    build: .
+    build: ./elflowServer
     ports:
       - "3007:3007"
     env_file:
       - config/Back.evn
-    restart: always
+
     depends_on:
       - db
   frontend:
     build: ./elflowReact
     ports:
-      - "80:3000"
+      - "80:80"
     env_file:
       - config/Front.evn
-    restart: always
+
 volumes:
   mydb:
     driver: local

@@ -5,7 +5,7 @@ server:
     docker run -p 3007:3007 --rm --name elnode --network my --env-file ./config/development.evn -v C:/elflow/server:/app -v /app/node_modules elnode
 
 client:
-    docker run -d -p 3000:3000 -d --rm --name fronttest -v C:/docker-mern/docker-mern/client/src:/app/src --env-file ./config/development.evn fronttest
+    docker run -p 3000:3000 --rm --name fronttest --env-file ../config/Front.evn 986f3d14cb82
 
 dev:
     docker-compose -f docker-compose.yml up -d
