@@ -11,24 +11,25 @@ services:
     ports:
       - "5432:5432"
   backend:
-    build:
-      context: ./elflowServer
-      dockerfile: /elflowReact/Dockerfile.prod
+    build: ./elflowServer
     ports:
       - "3007:3007"
     env_file:
       - config/Back.env
+    volumes:
+      - "$(pwd)"/elflowServer:/app
     restart: always
     depends_on:
       - db
   frontend:
-    build:
-      context: ./elflowReact
-      dockerfile: /elflowReact/Dockerfile.prod
+    build: ./elflowReact
     ports:
       - "80:80"
     env_file:
       - config/Front.env
+    volumes:
+      - "$(pwd)"/elflowReact/src:/app/src
+      - "$(pwd)"/elflowReact/src:/app/node_modules
     restart: always
 volumes:
   mydb:
