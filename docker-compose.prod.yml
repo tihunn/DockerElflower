@@ -11,7 +11,9 @@ services:
     ports:
       - "5432:5432"
   backend:
-    build: ./elflowServer
+    build:
+      context: ./elflowServer
+      dockerfile: /elflowReact/Dockerfile.prod
     ports:
       - "3007:3007"
     env_file:
@@ -20,7 +22,9 @@ services:
     depends_on:
       - db
   frontend:
-    build: ./elflowReact
+    build:
+      context: ./elflowReact
+      dockerfile: /elflowReact/Dockerfile.prod
     ports:
       - "80:80"
     env_file:

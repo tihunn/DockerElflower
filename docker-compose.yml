@@ -17,7 +17,7 @@ services:
     env_file:
       - config/Back.env
     volumes:
-      - $(pwd)/elflowServer:/app
+      - "$(pwd)"/elflowServer:/app
     restart: always
     depends_on:
       - db
@@ -28,8 +28,8 @@ services:
     env_file:
       - config/Front.env
     volumes:
-      - $(pwd)/elflowReact/src:/app/src
-      - $(pwd)/elflowReact/src:/app/node_modules
+      - "$(pwd)"/elflowReact/src:/app/src
+      - "$(pwd)"/elflowReact/src:/app/node_modules
     restart: always
 volumes:
   mydb:
