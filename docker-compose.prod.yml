@@ -16,8 +16,6 @@ services:
       - "3007:3007"
     env_file:
       - config/Back.env
-    volumes:
-      - $(pwd)/elflowServer:/app
     restart: always
     depends_on:
       - db
@@ -27,9 +25,6 @@ services:
       - "80:80"
     env_file:
       - config/Front.env
-    volumes:
-      - $(pwd)/elflowReact/src:/app/src
-      - $(pwd)/elflowReact/src:/app/node_modules
     restart: always
 volumes:
   mydb:
