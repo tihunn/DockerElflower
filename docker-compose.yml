@@ -19,6 +19,8 @@ services:
     env_file:
       - config/Back.env
     restart: always
+    volumes:
+      - ./elflowServer/static:/app/static
     depends_on:
       - db
   frontend:
